@@ -1,14 +1,113 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <title>Filmoteka</title>
+
+    <!-- Normalize -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+    />
+
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- cssanimation.io -->
+    <link
+      href="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/cssanimation.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome, чтобы можно было использовать значок для нашей Back to top button -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="./css/main.min.css" />
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <!-- Header -->
+    <header class="page-header">
+      <div class="container">
+        <div class="header">
+          <nav class="main-nav">
+            <a
+              class="logo link animate__animated animate__bounceInDown"
+              href="./index.html"
+            >
+              <svg class="logo__icon" width="24" height="24">
+                <use href="./images/logo/logo.svg#icon-logo"></use>
+              </svg>
+              <span class="cssanimation lePushReleaseFrom sequence"
+                >Filmoteka</span
+              ></a
+            >
+            <div>
+              <ul class="site-nav">
+                <li class="site-nav__item">
+                  <a class="site-nav__link" href="./index.html">home</a>
+                </li>
+                <li class="site-nav__item">
+                  <a class="site-nav__link" href="./index.html">my library</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <form id="search-form" class="search-form">
+            <input
+              class="search-form-input"
+              type="text"
+              name="searchQuery"
+              autocomplete="off"
+              placeholder="Movie search"
+            />
+          </form>
+          <div class="search-result"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="container">
+        <!-- Gallery -->
+        <div class="gallery"></div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <ul class="footer-nav">
+          <li class="footer-nav__item">© 2020</li>
+          <li class="footer-nav__item">All Rights Reserved</li>
+          <li class="footer-nav__item">
+            Developed with by
+            <span><a href="./index.html">GoIT Students</a></span>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a id="back-to-top"></a>
+
+    <!-- cssanimation.io -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/gh/yesiamrocks/cssanimation.io@1.0.3/letteranimation.min.js"
+    ></script>
+
+    <!-- jQuery бібліотека для Back to top button -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>
