@@ -12,6 +12,9 @@
   width: 394px;
   height: 634px;
   border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+
   transition: transform $transition-duration;
 
   &:hover,
@@ -24,6 +27,20 @@
   width: 395px;
   height: 574px;
   border-radius: 5px;
+}
+
+.gallery__item {
+}
+
+.gallery-item-trailer {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 160px;
+  color: #fff;
+  font-size: 15px;
+  background-color: $accent-font-color;
+  cursor: pointer;
 }
 
 .info {

@@ -288,6 +288,8 @@ ol {
   width: 394px;
   height: 634px;
   border-radius: 5px;
+  cursor: pointer;
+  position: relative;
   -webkit-transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -302,6 +304,17 @@ ol {
   width: 395px;
   height: 574px;
   border-radius: 5px;
+}
+
+.gallery-item-trailer {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 160px;
+  color: #fff;
+  font-size: 15px;
+  background-color: #ff6b08;
+  cursor: pointer;
 }
 
 .info {
@@ -442,4 +455,162 @@ ol {
 #back-to-top.show {
   opacity: 1;
   visibility: visible;
+}
+
+.modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 806px;
+  height: auto;
+  padding: 40px 12px;
+}
+
+.modal-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
+}
+
+.modal-card__images {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.modal-card__description {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+}
+
+.modal-card__image {
+  width: 375px;
+  height: 478px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+
+.modal-card__title {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.166;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.modal-card__table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.modal-card__table-row {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #8c8c8c;
+}
+
+.modal-card__table-data {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #000000;
+}
+.modal-card__table-data--grey {
+  color: #8c8c8c;
+}
+.modal-card__table-data span {
+  display: inline-block;
+  text-align: center;
+  width: 36px;
+  height: 16px;
+  background-color: #ff6b01;
+  border-radius: 5px;
+}
+
+.modal-card__about {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+.modal-card__about-description {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.modal-card__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 15px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.modal-card__btn-watched {
+  width: 136px;
+  height: 44px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #ff6b08;
+  cursor: pointer;
+}
+
+.modal-card__btn-queue {
+  width: 136px;
+  height: 44px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: #000000;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.modal-btn-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.modal-btn-close:hover {
+  color: #ff6b01;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }/*# sourceMappingURL=main.css.map */
