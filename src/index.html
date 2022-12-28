@@ -58,6 +58,66 @@
                 >Filmoteka</span
               ></a
             >
+            <div id="login-box">
+              <div class="left">
+                <h1>Sign up</h1>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="username"
+                />
+
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="E-mail"
+                />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                />
+
+                <input
+                  type="submit"
+                  id="signUp"
+                  name="signup_submit"
+                  value="Sign up"
+                />
+              </div>
+              <div class="right">
+                <h1>Login</h1>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="E-mail"
+                />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                />
+
+                <input type="submit" id="login" name="login" value="Login" />
+              </div>
+              <!-- <div class="right">
+                <span class="loginwith">Sign in with Social</span>
+
+                <button class="social-signin facebook">
+                  Log in with facebook
+                </button>
+                <button class="social-signin twitter">
+                  Log in with twitter
+                </button>
+                <button class="social-signin gmail">Log in with Gmail</button>
+              </div>
+              <div class="or">OR</div> -->
+            </div>
             <div>
               <ul class="site-nav">
                 <li class="site-nav__item">
@@ -119,4 +179,110 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="index.js" type="module"></script>
   </body>
+  <!-- FIREBASE -->
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from 'firebase/app';
+    import { getDatabase, set, ref, update } from 'firebase/database';
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+      signOut,
+    } from 'firebase/auth';
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: 'AIzaSyAfGl0uUd4Sdp3T8RHlmGPbD2e5tAOcwdo',
+      authDomain: 'fimoteka-app.firebaseapp.com',
+      databaseURL: 'https://fimoteka-app-default-rtdb.firebaseio.com',
+      projectId: 'fimoteka-app',
+      storageBucket: 'fimoteka-app.appspot.com',
+      messagingSenderId: '746758357020',
+      appId: '1:746758357020:web:ce42da3913ed0cbcb85fd9',
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    signUp.addEventListener('click', e => {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      var username = document.getElementById('username').value;
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(userCredential => {
+          // Signed in
+          const user = userCredential.user;
+
+          set(ref(database, 'user/' + user.uid), {
+            username: username,
+            email: email,
+          });
+          alert('user created!');
+          // ...
+        })
+        .catch(error => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+
+          alert(errorMessage);
+          // ..
+        });
+    });
+
+    login.addEventListener('click', e => {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      signInWithEmailAndPassword(auth, email, password)
+        .then(userCredential => {
+          // Signed in
+          const user = userCredential.user;
+          const dt = new Date();
+          update(ref(database, 'user/' + user.uid), {
+            last_login: dt,
+          });
+          alert('User loged in!');
+          // ...
+        })
+        .catch(error => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage);
+        });
+    });
+
+    const user = auth.currentUser;
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+    logout.addEventListener('click', e => {
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          alert('user loged out');
+        })
+        .catch(error => {
+          // An error happened.
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage);
+        });
+    });
+  </script>
 </html>
